@@ -76,6 +76,10 @@ def main():
             x = xrange(start_t, 100 + 1)
             assert len(x) == len(y)
             pyplot.plot(x, y)
+
+        pyplot.title("Curves for %s" % options)
+        pyplot.ylabel("price change (pence)")
+        pyplot.xlabel("event number")
         pyplot.show()
 
 
