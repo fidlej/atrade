@@ -39,7 +39,7 @@ def _parse_args():
 
 
 def _numerize(row, start, end, step):
-    """Converts the given range of string to floats.
+    """Converts the given range of strings to floats.
     """
     return [float(row[i]) for i in xrange(start, end, step)]
 
