@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+"""Generates changes.pickle.
+The file will contain sums of bid and ask changes.
+Different sums are provided for different groups of rows.
+The sums can be used to compute means.
+"""
 
 import csv
 import cPickle as pickle

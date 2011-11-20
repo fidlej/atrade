@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+"""Generates a response.csv file ready for a submission.
+"""
 
 import csv
 import cPickle as pickle
