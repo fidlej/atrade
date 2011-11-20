@@ -19,14 +19,15 @@ def main():
             row = reader.next()
             cols = dict((name, i) for i, name in enumerate(row))
 
-            output.write("%s\n" % ",".join(row))
+            head = ",".join("bid%s,ask%s" % (i, i) for i in xrange(51, 101))
+            output.write("row_id,%s\n" % head)
 
             keyer = Keyer(cols)
             row_id_col = cols["row_id"]
             bid_base_col = cols["bid50"]
-            for i, row in enumerate(reader):
-                if i % 1000 == 0:
-                    print i
+            for progress, row in enumerate(reader):
+                if progress % 1000 == 0:
+                    print progress
                 key = keyer.get_key(row)
                 item = changes.get(key)
                 num_aggregated = item[0]
@@ -51,4 +52,5 @@ def main():
                 output.write("%s,%s\n" % (row[row_id_col], formatted))
 
 
-main()
+if __name__ == "__main__":
+    main()
