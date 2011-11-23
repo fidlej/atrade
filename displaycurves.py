@@ -59,8 +59,7 @@ def main():
         base_col = columns[options.price + "50"]
 
         i = 0
-        while i < options.numplots:
-            row = reader.next()
+        for row in reader:
             security_id = int(row[columns["security_id"]])
             if security_id != options.security:
                 continue
@@ -68,6 +67,8 @@ def main():
             if initiator != options.initiator:
                 continue
 
+            if i >= options.numplots:
+                break
             i += 1
             y = np.asarray(
                     _numerize(row, start, mid_end, step=4) +
